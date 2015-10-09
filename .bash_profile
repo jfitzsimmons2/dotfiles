@@ -1,6 +1,23 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
+# Reference this directory for future usage in your .bashrc/.zshrc:
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+# Indicate to npm where to store your globally installed package. In your $HOME/.npmrc file add:
+prefix=${HOME}/.npm-packages
+
+# Ensure node will find them. Add the following to your .bashrc/.zshrc:
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+
+#Ensure you'll find installed binaries and man pages. Add the following to your .bashrc/.zshrc:
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Unset manpath so we can inherit from /etc/manpath via the `manpath`
+# command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.

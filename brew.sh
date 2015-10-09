@@ -102,3 +102,8 @@ brew install zopfli
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Fixes this issue:
+# https://github.com/mathiasbynens/dotfiles/issues/536
+sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+chsh -s /usr/local/bin/bash

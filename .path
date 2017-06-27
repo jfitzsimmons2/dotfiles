@@ -1,1 +1,1 @@
-export PATH="$PATH:/Applications/DevDesktop/tools/drush"
+export PATH="/Applications/DevDesktop/$PHP_ID/bin:/Applications/DevDesktop/mysql/bin:/Applications/DevDesktop/tools:$PATH"
